@@ -8,7 +8,6 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import dynamic from "next/dynamic";
 
 import CanvasJS from "@canvasjs/charts";
 
