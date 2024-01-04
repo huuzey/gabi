@@ -1,8 +1,8 @@
 "use client";
 
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import CanvasJS from "@canvasjs/charts";
-const Type = () => {
+const Type = ({ data }) => {
   useEffect(() => {
     var chart = new CanvasJS.Chart("chartContainer1", {
       backgroundColor: "#e6e6e6",
@@ -13,7 +13,7 @@ const Type = () => {
       },
 
       title: {
-        text: "Transaction Type by Amount",
+        text: `${data[4].title}`,
       },
       axisY: {
         prefix: "$",
@@ -30,8 +30,8 @@ const Type = () => {
 
           color: "#8fe673",
           dataPoints: [
-            { y: 198, label: "Special" },
-            { y: 201, label: "Place" },
+            { y: data[1].price, label: `${data[2].title}` },
+            { y: data[6].price, label: `${data[6].title}` },
           ],
         },
       ],

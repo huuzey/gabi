@@ -2,11 +2,11 @@
 import React, { useEffect } from "react";
 import CanvasJS from "@canvasjs/charts";
 import Type from "./Type";
-const Channel = () => {
+const Channel = ({ data }) => {
   useEffect(() => {
     var chart = new CanvasJS.Chart("chartContainer3", {
       title: {
-        text: "Payment channel by Amount",
+        text: `${data[9].title}`,
       },
       backgroundColor: "#e6e6e6",
 
@@ -33,9 +33,9 @@ const Channel = () => {
           type: "column",
           color: "#33abf5",
           dataPoints: [
-            { label: "Online", y: 118 },
-            { label: "In store", y: 49 },
-            { label: "Other", y: 20 },
+            { label: `${data[7].title}`, y: data[7].price },
+            { label: `${data[8].title}`, y: data[8].price },
+            { label: `${data[9].title}`, y: data[9].price },
           ],
         },
       ],

@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import Month from "@/components/ui/Month";
 import {
@@ -11,10 +11,11 @@ import {
 
 import CanvasJS from "@canvasjs/charts";
 
-const Top = () => {
+const Top = ({ data }) => {
+  console.log("top", data);
   useEffect(() => {
     var gauge = {
-      title: { text: "Expenses Against Predicted Yearly" },
+      title: { text: `${data[0].title}` },
       data: { y: 66.69 }, //gauge value
       ot: { y: "$" + 66.69 + "k" }, //ot value
       maximum: 133.91,
@@ -97,8 +98,8 @@ const Top = () => {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 ">
         {/* nominal account */}
         <div className="flex shadow-lg py-8 px-0 h-[150px] shadow-black flex-col justify-center items-center">
-          <Button className="text-black text-3xl">$66.96K</Button>
-          <p className="text-xs">Nominal Account</p>
+          <Button className="text-black text-3xl">${data[4].price}</Button>
+          <p className="text-xs">{data[4].title}</p>
         </div>
         {/* months*/}
 
@@ -116,7 +117,7 @@ const Top = () => {
             <Accordion type="single" collapsible>
               <AccordionItem value="item-1">
                 <AccordionTrigger className="ml-3 mr-3">
-                  Sub Categories
+                  {data[2].title}
                 </AccordionTrigger>
               </AccordionItem>
             </Accordion>
@@ -133,7 +134,7 @@ const Top = () => {
             <Accordion type="single" collapsible>
               <AccordionItem value="item-1">
                 <AccordionTrigger className="ml-3 mr-3">
-                  Income vs Expenses
+                  {data[5].title}
                 </AccordionTrigger>
               </AccordionItem>
             </Accordion>

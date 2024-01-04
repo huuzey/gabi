@@ -2,11 +2,11 @@
 import React, { useEffect } from "react";
 import CanvasJS from "@canvasjs/charts";
 import Type from "./Type";
-const Doughnout = () => {
+const Doughnout = ({data}) => {
   useEffect(() => {
     var chart = new CanvasJS.Chart("chartContainer4", {
       title: {
-        text: "Merchant by Expenses",
+        text: `${data[8].title}`,
       },
       backgroundColor: "#e6e6e6",
 
@@ -14,9 +14,9 @@ const Doughnout = () => {
         {
           type: "doughnut",
           dataPoints: [
-            { y: 5, indexLabel: "McDonald's $0.01k(0.73%)" },
-            { y: 35.0, indexLabel: "KFC $0.5k(30.26%)" },
-            { y: 227, indexLabel: "Others $1,13k(68.4%)" },
+            { y: data[7].price, indexLabel: `${data[7].title}` },
+            { y: data[8].price, indexLabel: `${data[8].title}` },
+            { y: data[9].price, indexLabel: `${data[9].title}`},
           ],
         },
       ],

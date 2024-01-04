@@ -2,11 +2,11 @@
 import React, { useEffect } from "react";
 import CanvasJS from "@canvasjs/charts";
 import Type from "./Type";
-const Spline = () => {
+const Spline = ({ data }) => {
   useEffect(() => {
     var chart = new CanvasJS.Chart("chartContainer6", {
       title: {
-        text: "Amount Spent per Month",
+        text: `${data[6].title}`,
       },
 
       axisX: {
@@ -35,12 +35,12 @@ const Spline = () => {
           markerType: "none",
           type: "line",
           dataPoints: [
-            { x: new Date(2012, 0, 1), y: 1352 },
-            { x: new Date(2012, 1, 1), y: 154 },
-            { x: new Date(2012, 2, 1), y: 1321 },
-            { x: new Date(2012, 3, 1), y: 63 },
-            { x: new Date(2012, 4, 1), y: 950 },
-            { x: new Date(2012, 5, 1), y: 1201 },
+            { x: new Date(2012, 0, 1), y: data[7].price },
+            { x: new Date(2012, 1, 1), y: data[2].price },
+            { x: new Date(2012, 2, 1), y: data[4].price },
+            { x: new Date(2012, 3, 1), y: data[1].price },
+            { x: new Date(2012, 4, 1), y: data[3].price },
+            { x: new Date(2012, 5, 1), y: data[9].price },
           ],
         },
       ],
